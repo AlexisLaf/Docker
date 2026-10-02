@@ -1,0 +1,14 @@
+FROM postgres:17.2-alpine
+
+ENV POSTGRES_DB=db \
+   POSTGRES_USER=usr \
+   POSTGRES_PASSWORD=pwd
+#These environment variable can all be replaced by using -e when running the image.
+
+WORKDIR /usr/local/bin
+
+#docker-entrypoint-initdb.d is an initianilization script space that will be run if there is no current database inside the volume
+COPY CreateScheme.sql /docker-entrypoint-initdb.d/
+COPY InsertData.sql /docker-entrypoint-initdb.d/
+
+#(The base image creates temporary volume on each launch by itself when one isn't given.)

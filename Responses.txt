@@ -1,0 +1,13 @@
+1.1 -> It's better to run the container with the flag -e than directly putting the variable in the dockerfile for privacy purposes.
+Firstly you can change the environment variable just before running and it's not fixed.
+Then you can also make it so that the variable cannot be known to other people when you publish the image.
+
+
+1.2 -> So that the volume isn't created on each new launch of the DB and that the data persists between launches.
+
+1.3 -> In the files.
+
+1.4 -> A multistage build will help to have a smaller image when uploaded.
+It's so the source code isn't inside the image we upload when we run the app.
+
+1.5 -> The reverse proxy is to make privilege escalation harder, to have more firewalls, and not directly expose the server that has all the data.
