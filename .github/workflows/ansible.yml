@@ -9,7 +9,6 @@ on:
     versions:
       - 1.*
       - 2.*
-    branches: [main]
   workflow_dispatch:
     inputs:
       logLevel:
@@ -20,7 +19,6 @@ on:
         description: 'Environment to deploy'
         required: false
         default: 'staging'
-    branches: [main]
 
 jobs:
 
@@ -29,7 +27,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
+      with:
         sparse-checkout: /Ansible
     
     - name: Install Ansible
@@ -37,11 +36,9 @@ jobs:
 
     - name: decrypt vaulted-key
       shell: bash
-      with: # Set the secret as an input
-        vault_key : ${{ secrets.ANSIBLE_VAULT_PWD }}
       run: |
         touch vaultkey 
-        echo '${{ vault_key }}' >> vaultkey
+        echo '${{ secrets.ANSIBLE_VAULT_PWD }}' >> vaultkey
         ansible-vault decrypt --vault-password-file vaultkey
 
     - name: Run deploy

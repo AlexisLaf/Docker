@@ -9,6 +9,6 @@
       - name: front 
     ports: 
     # Open the proxy's port 8080 to the internet
-      - "8080:80"
+      - "8080:8080"
     state: started
     restart: true
