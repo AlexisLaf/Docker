@@ -1,5 +1,7 @@
 The files inside this directory will be copied from the linux subsystem used to run the commands.
 
+The primary file is ```playbook.yml```
+
 # responses to the questions
 ### Q1.
 
@@ -11,4 +13,8 @@ The files inside this directory will be copied from the linux subsystem used to 
 - -m [module] | Executes the specified module on the chosen hosts.
 - -a [args] | Additionnal arguments given to the module.
 
-### Q2.
+### Q4.
+
+It isn't safe to deploy every image on the hub directly, since there could be erors everywhere.
+We could check them with another testing pipeline.
+Or keep our own image server from which we serve the images.

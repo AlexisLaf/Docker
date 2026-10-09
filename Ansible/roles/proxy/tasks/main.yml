@@ -1,0 +1,13 @@
+# The proxy serving http to the user.
+
+- name: Load the docker proxy image
+  docker_container:
+    name: proxy
+    image: alexislaf/httpproxy:1.0
+    networks:
+      - name: api
+    ports: 
+    # Open the proxy's port 80 to the internet
+      - "80:80"
+    state: started
+    restart: true

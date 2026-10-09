@@ -1,0 +1,10 @@
+
+# Create the docker network connecting the Database to the backend
+- name: Create Network | database
+  docker_network:
+    name: database
+
+# Create the docker network connecting the Backend and the http server
+- name: Create Network | api
+  docker_network:
+    name: api
