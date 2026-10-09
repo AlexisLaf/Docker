@@ -44,9 +44,14 @@ jobs:
     
     - name: Set the working directory
       run: |
+        pwd
         ls *
         cd ./Ansible
+        echo "Inside the directory?"
         ls *
 
     - name: Run deploy
-      run: ansible-playbook -i inventories/cdsetup.yml playbook.yml 
+      run: |
+        pwd
+        cd ./Ansible/
+        ansible-playbook -i inventories/cdsetup.yml playbook.yml 
