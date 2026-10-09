@@ -1,0 +1,27 @@
+name: Ansible deployment
+
+on:
+  image_version:
+    names:
+      - "alexislaf/javabackend"
+      - "alexislaf/httpproxy"
+      - "alexislaf/smplstuddb"
+    versions:
+      - 1.*
+      - 2.*
+
+jobs:
+
+  ansible_deploy :
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+        sparse-checkout: /Ansible
+    
+    - name: Install Ansible
+      uses: rishabhc32/install-ansible@v1.2.2
+
+    - name: Run deploy
+      run: ansible-playbook -i inventories/cdsetup.yml playbook.yml 
