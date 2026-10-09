@@ -1,0 +1,36 @@
+services:
+    backend:
+        build:
+          - /Backend/
+        networks:
+          - database-backend
+        depends_on:
+          database:
+            condition: service_healthy
+            restart: true
+
+    database:
+        build:
+          - /Database/
+        networks:
+          - database-backend
+          - Server-api
+
+    httpd:
+        build:
+          - /Server/
+        ports:
+          - "80:80"
+        networks:
+          - Server-api
+        depends_on:
+          backend:
+            condition: service_healthy
+            restart: true
+
+networks:
+  database-backend: {}
+  Server-api: {}
+
+volumes:
+  #TODO
