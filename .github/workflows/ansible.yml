@@ -42,16 +42,8 @@ jobs:
       #  echo '${{ secrets.ANSIBLE_VAULT_PWD }}' >> vaultkey
       #  ansible-vault decrypt --vault-password-file vaultkey
     
-    - name: Set the working directory
-      run: |
-        pwd
-        ls *
-        cd ./Ansible
-        echo "Inside the directory?"
-        ls *
-
     - name: Run deploy
       run: |
-        pwd
         cd ./Ansible/
+        cat ./vaulted_key
         ansible-playbook -i inventories/cdsetup.yml playbook.yml 
