@@ -34,8 +34,6 @@ jobs:
     - name: Install Ansible
       uses: rishabhc32/install-ansible@v1.2.2
 
-    - name: Set the working directory
-      run: cd ./Ansible
 
     #- name: decrypt vaulted-key
      # shell: bash
@@ -44,8 +42,10 @@ jobs:
       #  echo '${{ secrets.ANSIBLE_VAULT_PWD }}' >> vaultkey
       #  ansible-vault decrypt --vault-password-file vaultkey
     
-    - name: debug
+    - name: Set the working directory
       run: |
+        ls *
+        cd ./Ansible
         ls *
 
     - name: Run deploy
