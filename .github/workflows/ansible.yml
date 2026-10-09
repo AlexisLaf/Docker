@@ -34,15 +34,15 @@ jobs:
     - name: Install Ansible
       uses: rishabhc32/install-ansible@v1.2.2
 
+    - name: Set the working directory
+      run: cd ./Ansible
+
     #- name: decrypt vaulted-key
      # shell: bash
       #run: |
       #  touch vaultkey 
       #  echo '${{ secrets.ANSIBLE_VAULT_PWD }}' >> vaultkey
       #  ansible-vault decrypt --vault-password-file vaultkey
-
-    - name: debug
-      run: ls .
 
     - name: Run deploy
       run: ansible-playbook -i inventories/cdsetup.yml playbook.yml 
