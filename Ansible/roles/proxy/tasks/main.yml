@@ -6,8 +6,9 @@
     image: alexislaf/httpproxy:1.0
     networks:
       - name: api
+      - name: front 
     ports: 
-    # Open the proxy's port 80 to the internet
-      - "80:80"
+    # Open the proxy's port 8080 to the internet
+      - "8080:80"
     state: started
     restart: true

@@ -9,6 +9,7 @@ on:
     versions:
       - 1.*
       - 2.*
+    branches: [main]
   workflow_dispatch:
     inputs:
       logLevel:
@@ -19,6 +20,7 @@ on:
         description: 'Environment to deploy'
         required: false
         default: 'staging'
+    branches: [main]
 
 jobs:
 

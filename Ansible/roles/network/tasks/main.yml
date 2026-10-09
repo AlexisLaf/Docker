@@ -8,3 +8,8 @@
 - name: Create Network | api
   docker_network:
     name: api
+
+# Create the docker network connecting the proxy and the vue server
+- name: Create Network | front
+  docker_network:
+    name: front

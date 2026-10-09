@@ -1,0 +1,13 @@
+# The vue frontend.
+
+- name: Load the docker vuefront image
+  docker_container:
+    name: vuefront 
+    image: alexislaf/vuefront:1.0
+    networks:
+      - name: front 
+    ports: 
+    # Open the proxy's port 80 to the internet
+      - "80:80"
+    state: started
+    restart: true

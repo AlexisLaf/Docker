@@ -14,7 +14,8 @@
     - role: app
       vars:
         db_pwd: "{{POSTGRES_PASSWORD}}"
-    - role: proxy
+    - proxy
+    - front
 
   tasks:
    - name: Test connection
