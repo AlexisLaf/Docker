@@ -1,0 +1,16 @@
+
+- hosts: all
+  gather_facts: true 
+  become: true
+  roles: 
+    - role: docker
+      tags: docker 
+
+  tasks:
+   - name: Test connection
+     ping:
+
+   #- name: Run HTTPD
+    # docker_container:
+     #   name: httpd
+      #  image: 

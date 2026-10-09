@@ -1,0 +1,9 @@
+all:
+ vars:
+   ansible_user: admin
+   ansible_ssh_private_key_file: ~/ansible/id_rsa
+   # The path to the private key file inside the wsl used to run the commands
+ children:
+   prod:
+     hosts: alexis.lafargue.takima.school
+     #The host to be connected to
