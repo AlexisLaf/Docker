@@ -1,0 +1,10 @@
+#SPDX-License-Identifier: MIT-0
+---
+# handlers file for roles/docker
+
+# Ensure Docker is running
+- name: Docker is running
+  service:
+    name: docker
+    state: started
+  tags: docker

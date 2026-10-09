@@ -1,0 +1,14 @@
+# The backend
+
+- name: Load the docker javaback image
+  docker_container:
+    name: backend 
+    image: alexislaf/javabackend:1.0
+    networks:
+      - name: api
+      - name: database
+    env:
+    # Set the password to the variable db_pwd.
+      POSTGRES_PASSWORD : "{{ db_pwd }}"
+    state: started
+    restart: true

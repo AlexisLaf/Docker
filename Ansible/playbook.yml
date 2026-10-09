@@ -1,0 +1,21 @@
+
+- hosts: all
+  gather_facts: true 
+  become: true
+  vars:
+    POSTGRES_PASSWORD: password
+  roles: 
+    - role: docker
+      tags: docker 
+    - role: network
+    - role: database
+      vars:
+        db_pwd: "{{POSTGRES_PASSWORD}}"
+    - role: app
+      vars:
+        db_pwd: "{{POSTGRES_PASSWORD}}"
+    - role: proxy
+
+  tasks:
+   - name: Test connection
+     ping:
