@@ -43,6 +43,10 @@ jobs:
       #  touch vaultkey 
       #  echo '${{ secrets.ANSIBLE_VAULT_PWD }}' >> vaultkey
       #  ansible-vault decrypt --vault-password-file vaultkey
+    
+    - name: debug
+      run: |
+        ls *
 
     - name: Run deploy
       run: ansible-playbook -i inventories/cdsetup.yml playbook.yml 
