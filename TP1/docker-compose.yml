@@ -1,6 +1,6 @@
 services:
     backend:
-        build: "Backend"
+        build: "backend"
         networks:
           - database-backend
         depends_on:
