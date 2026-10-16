@@ -45,5 +45,5 @@ jobs:
     - name: Run deploy
       run: |
         cd ./Ansible/
-        cat inventories/cdsetup.yml
+        echo ~
         ansible-playbook -i inventories/cdsetup.yml playbook.yml 

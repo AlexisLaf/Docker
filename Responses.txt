@@ -11,3 +11,31 @@ Then you can also make it so that the variable cannot be known to other people w
 It's so the source code isn't inside the image we upload when we run the app.
 
 1.5 -> The reverse proxy is to make privilege escalation harder, to have more firewalls, and not directly expose the server that has all the data.
+
+
+1.6 -> Docker compose is important since it helps to with a single command build multiple images together.
+
+1.7 -> 
+Docker-compose 
+ build                   builds the whole compile
+ ps                      List containers
+ up                      Create and start containers
+ logs                    View output from containers
+ rm                      Removes stopped service containers
+ exec                    Execute a command in a running container
+
+
+1.9 ->
+
+Posted images : 
+- alexislaf/vuefront : The ansible TP3 Vue frontEnd
+
+- alexislaf/smplstuddb : The simple database, here Database in TP1
+
+- alexislaf/httpproxy : The "Server" in TP1 or also 'httpd'
+
+- alexislaf/javabackend : The Backend that responds to the API in TP1
+
+
+1.10 -> We put our images inside an online repo so that they are accessible easily to any machine with internet connection.
+This means it is to make deployment easier.

@@ -9,6 +9,8 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn dependency:go-offline package -DskipTests=true
 
+RUN apk add --no-cache curl
+
 # Run stage
 FROM eclipse-temurin:23-jre-alpine
 ENV MYAPP_HOME=/opt/myapp \

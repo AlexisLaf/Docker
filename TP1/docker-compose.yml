@@ -1,36 +1,36 @@
 services:
     backend:
-        build:
-          - /Backend/
+        build: "Backend"
         networks:
           - database-backend
         depends_on:
           database:
             condition: service_healthy
             restart: true
-
     database:
-        build:
-          - /Database/
+        build: "Database"
         networks:
           - database-backend
           - Server-api
+        volumes:
+          - dbvol:/var/lib/postgresql/data
+        healthcheck:
+          test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+          interval: 10s
+          retries: 5
+          start_period: 30s
+          timeout: 10s
 
     httpd:
-        build:
-          - /Server/
+        build: "Server"
         ports:
           - "80:80"
         networks:
           - Server-api
-        depends_on:
-          backend:
-            condition: service_healthy
-            restart: true
 
 networks:
   database-backend: {}
   Server-api: {}
 
 volumes:
-  #TODO
+  dbvol :
