@@ -39,6 +39,7 @@ jobs:
       shell: bash
       run: |
         touch vaultkey 
+        echo "Touched passed."
         echo '${{ secrets.ANSIBLE_VAULT_PWD }}' >> vaultkey
         ansible-vault decrypt --vault-password-file vaultkey
     
