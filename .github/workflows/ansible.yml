@@ -35,12 +35,12 @@ jobs:
       uses: rishabhc32/install-ansible@v1.2.2
 
 
-    #- name: decrypt vaulted-key
-     # shell: bash
-      #run: |
-      #  touch vaultkey 
-      #  echo '${{ secrets.ANSIBLE_VAULT_PWD }}' >> vaultkey
-      #  ansible-vault decrypt --vault-password-file vaultkey
+    - name: decrypt vaulted-key
+      shell: bash
+      run: |
+        touch vaultkey 
+        echo '${{ secrets.ANSIBLE_VAULT_PWD }}' >> vaultkey
+        ansible-vault decrypt --vault-password-file vaultkey
     
     - name: Run deploy
       run: |
