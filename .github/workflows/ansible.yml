@@ -48,5 +48,4 @@ jobs:
     - name: Run deploy
       run: |
         cd ./Ansible/
-        cat vaulted_key
-        ansible-playbook -i inventories/cdsetup.yml playbook.yml 
+        ansible-playbook -i inventories/cdsetup.yml playbook.yml --key-file vaulted_key
