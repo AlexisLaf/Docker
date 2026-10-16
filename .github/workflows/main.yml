@@ -24,7 +24,7 @@ jobs:
       - name: Build and test with Maven
         run: |
           cd ./TP2/tp-devops-correction-docker
-          mvn clean verify --file ./Backend/pom.xml
+          mvn clean verify --file ./simple-api/pom.xml
 
   build-and-push-docker-image:
     needs: test-backend
