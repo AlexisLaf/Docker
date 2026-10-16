@@ -3,7 +3,7 @@
 - name: Load the docker proxy image
   docker_container:
     name: proxy
-    image: alexislaf/httpproxy:1.0
+    image: alexislaf/httpproxy:1.1
     networks:
       - name: api
       - name: front 
