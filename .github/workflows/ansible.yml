@@ -35,9 +35,11 @@ jobs:
     
     - name: Install Ansible
       uses: rishabhc32/install-ansible@v1.2.2
-      with:
-         ansible-package: "2.20.1"
 
+    - name: Check ansible
+      run: |
+        ansible --version
+        ansible-playbook --version
 
     - name: decrypt vaulted-key
       shell: bash
