@@ -1,12 +1,20 @@
 services:
     backend:
-        build: "backend"
+        build: "Backend"
+        container_name: "backend"
         networks:
           - database-backend
         depends_on:
           database:
             condition: service_healthy
             restart: true
+        healthcheck:
+          test: ["CMD", "curl", "-f", "http://localhost:8080"]
+          interval: 30s
+          retries: 5
+          start_period: 30s
+          timeout: 10s
+
     database:
         build: "Database"
         networks:
@@ -27,6 +35,10 @@ services:
           - "80:80"
         networks:
           - Server-api
+        depends_on:
+          backend:
+            condition: service_healthy
+            restart: true
 
 networks:
   database-backend: {}
