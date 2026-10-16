@@ -20,7 +20,8 @@ jobs:
           java-version: '21'
           distribution: 'oracle'
 
-
       #finally build your app with the latest command
       - name: Build and test with Maven
-        run: mvn clean verify --file ./Backend/pom.xml
+        run: |
+          cd ./TP1
+          mvn clean verify --file ./Backend/pom.xml

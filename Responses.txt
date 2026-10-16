@@ -21,6 +21,7 @@ Docker-compose
  ps                      List containers
  up                      Create and start containers
  logs                    View output from containers
+ images                  List images used by the created containers
  rm                      Removes stopped service containers
  exec                    Execute a command in a running container
 
