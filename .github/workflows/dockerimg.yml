@@ -5,6 +5,12 @@ on:
     branches: [main]
     types: 
       - completed
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "The name of the run"
+        default: run
+        required: true
 
 jobs:
   build-and-push-docker-image:
