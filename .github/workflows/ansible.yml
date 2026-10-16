@@ -40,8 +40,7 @@ jobs:
       run: |
         touch vaultkey 
         echo '${{ secrets.ANSIBLE_VAULT_PWD }}' >> vaultkey
-        cat vaultkey
-        ansible-vault decrypt --vault-password-file vaultkey
+        ansible-vault decrypt vaulted_key --vault-password-file vaultkey
     
     - name: Run deploy
       run: |
