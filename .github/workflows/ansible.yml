@@ -1,6 +1,8 @@
 name: Ansible deployment
 
 on:
+  push:
+    branches: "main"
   image_version:
     names:
       - "alexislaf/javabackend"
@@ -46,4 +48,5 @@ jobs:
     - name: Run deploy
       run: |
         cd ./Ansible/
+        cat vaulted_key
         ansible-playbook -i inventories/cdsetup.yml playbook.yml 
