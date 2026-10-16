@@ -1,8 +1,6 @@
 name: Ansible deployment
 
 on:
-  push:
-    branches: "main"
   image_version:
     names:
       - "alexislaf/javabackend"
