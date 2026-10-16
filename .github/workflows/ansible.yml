@@ -38,6 +38,7 @@ jobs:
     - name: decrypt vaulted-key
       shell: bash
       run: |
+        cd ./Ansible/
         touch vaultkey 
         echo '${{ secrets.ANSIBLE_VAULT_PWD }}' >> vaultkey
         ansible-vault decrypt vaulted_key --vault-password-file vaultkey
