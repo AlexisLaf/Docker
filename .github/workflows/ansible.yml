@@ -53,3 +53,5 @@ jobs:
       run: |
         cd ./Ansible/
         ansible-playbook -i inventories/cdsetup.yml playbook.yml --key-file vaulted_key
+      env:
+        ANSIBLE_HOST_KEY_CHECKING: 'False'
