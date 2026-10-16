@@ -2,7 +2,7 @@
 
 - name: Load the docker vuefront image
   docker_container:
-    name: vuefront 
+    name: front 
     image: alexislaf/vuefront:1.0
     networks:
       - name: front 
