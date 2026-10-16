@@ -32,3 +32,4 @@ jobs:
         run: |
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=dockerprojkey -Dsonar.organization=afraidorgkey -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=${{ secrets.SONAR_TOKEN }}  --file ./simple-api/pom.xml
 
+#Change to relaunch
