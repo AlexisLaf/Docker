@@ -11,7 +11,7 @@ jobs:
      #checkout your github code using actions/checkout@v4
       - uses: actions/checkout@v4
         with:
-          sparse-checkout: TP1
+          sparse-checkout: TP2/tp-devops-correction-docker
 
      #do the same with another action (actions/setup-java@v4) that enable to setup jdk 21
       - name: Set up JDK 21
@@ -23,7 +23,7 @@ jobs:
       #finally build your app with the latest command
       - name: Build and test with Maven
         run: |
-          cd ./TP1
+          cd ./TP2/tp-devops-correction-docker/
           mvn clean verify --file ./Backend/pom.xml
 
   build-and-push-docker-image:
