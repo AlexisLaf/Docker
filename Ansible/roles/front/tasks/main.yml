@@ -6,8 +6,8 @@
     image: alexislaf/vuefront:1.0
     networks:
       - name: front 
-    ports: 
+    #ports: 
     # Open the proxy's port 80 to the internet
-      - "80:80"
+    #  - "80:80"
     state: started
     restart: true
